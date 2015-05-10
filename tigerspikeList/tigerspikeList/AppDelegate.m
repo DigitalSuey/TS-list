@@ -17,6 +17,37 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSURL *url = [NSURL URLWithString:@"https://api.myjson.com/bins/1quht"];
+    
+    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if (error) {
+            NSLog(@"Failed to load json");
+        } else {
+            
+            NSMutableArray *list = [[NSMutableArray alloc] init];
+            NSMutableDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            
+            list = responseDict[@"solutions"];
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES);
+            NSString *bundlePath = [paths objectAtIndex:0];
+            NSString *plistPath = [bundlePath stringByAppendingPathComponent:@"list.plist"];
+            NSFileManager *manager = [NSFileManager defaultManager];
+            
+            if (![manager fileExistsAtPath:plistPath]){
+                // Doesn't exist, write list to the plist
+                [list writeToFile:plistPath atomically:YES];
+            } else {
+                // List plist exists, delete it and write the new one
+                [manager removeItemAtPath:plistPath error:&error];
+                [list writeToFile:plistPath atomically:YES];
+            }
+            
+        }
+    }];
+    
     return YES;
 }
 
