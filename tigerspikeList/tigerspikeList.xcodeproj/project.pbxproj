@@ -14,8 +14,9 @@
 		54AC81BD1AFF20C200391F8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54AC81BC1AFF20C200391F8F /* Images.xcassets */; };
 		54AC81C01AFF20C200391F8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AC81BE1AFF20C200391F8F /* LaunchScreen.xib */; };
 		54AC81CC1AFF20C300391F8F /* tigerspikeListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81CB1AFF20C300391F8F /* tigerspikeListTests.m */; };
-		54AC81D71AFF2B7800391F8F /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81D61AFF2B7800391F8F /* CustomCell.m */; };
-		54AC81DA1AFF2C8A00391F8F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81D91AFF2C8A00391F8F /* WebViewController.m */; };
+		54AC81DD1AFF388C00391F8F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81DC1AFF388C00391F8F /* WebViewController.m */; };
+		54AC81E01AFF38AB00391F8F /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81DF1AFF38AB00391F8F /* CustomCell.m */; };
+		54AC81E21AFF39BE00391F8F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AC81E11AFF39BE00391F8F /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +43,11 @@
 		54AC81C51AFF20C300391F8F /* tigerspikeListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tigerspikeListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54AC81CA1AFF20C300391F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54AC81CB1AFF20C300391F8F /* tigerspikeListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tigerspikeListTests.m; sourceTree = "<group>"; };
-		54AC81D51AFF2B7800391F8F /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = "../../../iOS-tigerspike-listOLD/tigerspikeList/tigerspikeList/CustomCell.h"; sourceTree = "<group>"; };
-		54AC81D61AFF2B7800391F8F /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = "../../../iOS-tigerspike-listOLD/tigerspikeList/tigerspikeList/CustomCell.m"; sourceTree = "<group>"; };
-		54AC81D81AFF2C8A00391F8F /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = "../../../iOS-tigerspike-listOLD/tigerspikeList/tigerspikeList/WebViewController.h"; sourceTree = "<group>"; };
-		54AC81D91AFF2C8A00391F8F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = "../../../iOS-tigerspike-listOLD/tigerspikeList/tigerspikeList/WebViewController.m"; sourceTree = "<group>"; };
+		54AC81DB1AFF388C00391F8F /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		54AC81DC1AFF388C00391F8F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		54AC81DE1AFF38AB00391F8F /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		54AC81DF1AFF38AB00391F8F /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		54AC81E11AFF39BE00391F8F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54AC81E21AFF39BE00391F8F /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 		54AC81A31AFF20C200391F8F = {
 			isa = PBXGroup;
 			children = (
+				54AC81E11AFF39BE00391F8F /* WebKit.framework */,
 				54AC81AE1AFF20C200391F8F /* tigerspikeList */,
 				54AC81C81AFF20C300391F8F /* tigerspikeListTests */,
 				54AC81AD1AFF20C200391F8F /* Products */,
@@ -91,10 +95,10 @@
 				54AC81B41AFF20C200391F8F /* AppDelegate.m */,
 				54AC81B61AFF20C200391F8F /* ViewController.h */,
 				54AC81B71AFF20C200391F8F /* ViewController.m */,
-				54AC81D51AFF2B7800391F8F /* CustomCell.h */,
-				54AC81D61AFF2B7800391F8F /* CustomCell.m */,
-				54AC81D81AFF2C8A00391F8F /* WebViewController.h */,
-				54AC81D91AFF2C8A00391F8F /* WebViewController.m */,
+				54AC81DE1AFF38AB00391F8F /* CustomCell.h */,
+				54AC81DF1AFF38AB00391F8F /* CustomCell.m */,
+				54AC81DB1AFF388C00391F8F /* WebViewController.h */,
+				54AC81DC1AFF388C00391F8F /* WebViewController.m */,
 				54AC81B91AFF20C200391F8F /* Main.storyboard */,
 				54AC81BC1AFF20C200391F8F /* Images.xcassets */,
 				54AC81BE1AFF20C200391F8F /* LaunchScreen.xib */,
@@ -230,10 +234,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				54AC81B81AFF20C200391F8F /* ViewController.m in Sources */,
-				54AC81DA1AFF2C8A00391F8F /* WebViewController.m in Sources */,
 				54AC81B51AFF20C200391F8F /* AppDelegate.m in Sources */,
-				54AC81D71AFF2B7800391F8F /* CustomCell.m in Sources */,
 				54AC81B21AFF20C200391F8F /* main.m in Sources */,
+				54AC81DD1AFF388C00391F8F /* WebViewController.m in Sources */,
+				54AC81E01AFF38AB00391F8F /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

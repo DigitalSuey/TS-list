@@ -60,11 +60,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="vba-9K-AN9" id="KUZ-hE-Ida"/>
-                                            <outlet property="descriptionLeftConstraint" destination="g2E-hb-ljy" id="Y3u-OP-NIL"/>
-                                            <outlet property="thumbnailImageView" destination="ZiW-yU-n0I" id="6wF-NM-Ps4"/>
-                                            <outlet property="titleLabel" destination="ILK-Dy-kOR" id="9Xf-uT-TEd"/>
-                                            <outlet property="titleLeftConstraint" destination="Mxe-IH-rkE" id="mGH-Bq-x0v"/>
+                                            <outlet property="descriptionLabel" destination="vba-9K-AN9" id="Cvt-kq-rhE"/>
+                                            <outlet property="descriptionLeftConstraint" destination="g2E-hb-ljy" id="eH8-V1-svc"/>
+                                            <outlet property="thumbnailImageView" destination="ZiW-yU-n0I" id="gBO-q1-E0d"/>
+                                            <outlet property="titleLabel" destination="ILK-Dy-kOR" id="mFW-Z6-fyC"/>
+                                            <outlet property="titleLeftConstraint" destination="Mxe-IH-rkE" id="XnT-QJ-Eyh"/>
                                             <segue destination="7es-je-ccO" kind="show" id="EEd-B4-nZE"/>
                                         </connections>
                                     </tableViewCell>
@@ -108,7 +108,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="CL6-tI-B0c" id="gMc-7p-cDa"/>
+                        <outlet property="webView" destination="CL6-tI-B0c" id="tGP-2e-gzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XzN-fr-MkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
