@@ -65,7 +65,7 @@
                                             <outlet property="thumbnailImageView" destination="ZiW-yU-n0I" id="gBO-q1-E0d"/>
                                             <outlet property="titleLabel" destination="ILK-Dy-kOR" id="mFW-Z6-fyC"/>
                                             <outlet property="titleLeftConstraint" destination="Mxe-IH-rkE" id="XnT-QJ-Eyh"/>
-                                            <segue destination="7es-je-ccO" kind="show" id="EEd-B4-nZE"/>
+                                            <segue destination="7es-je-ccO" kind="show" identifier="" id="EEd-B4-nZE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

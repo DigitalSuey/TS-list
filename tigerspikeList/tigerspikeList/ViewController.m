@@ -13,7 +13,7 @@
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *list;
-@property (strong, nonatomic) WebViewController *webVC;
+//@property (strong, nonatomic) WebViewController *webVC;
 
 @end
 
@@ -27,7 +27,6 @@
     NSString *plistPath = [bundlePath stringByAppendingPathComponent:@"list.plist"];
     
     self.list = [NSMutableArray arrayWithContentsOfFile:plistPath];
-    self.webVC = [[WebViewController alloc]init];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -95,9 +94,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    self.webVC.url = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"url"];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WebViewController *webVC = [[WebViewController alloc]initWithNibName:nil bundle:nil];
+    webVC.url = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"url"];
+    [self.navigationController pushViewController:webVC animated:YES];
+    
+    
+    
+//    self.webVC.url = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"url"];
+//    
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

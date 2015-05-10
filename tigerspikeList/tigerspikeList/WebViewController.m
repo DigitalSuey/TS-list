@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.webView.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,10 +27,12 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated{
+    
     NSURL *url = [NSURL URLWithString:self.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
+    
 }
 
 /*
@@ -42,6 +46,18 @@
 */
 
 #pragma mark - UIWebViewDelegate
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSLog(@"ERROR LOADING: %@", error);
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    NSLog(@"STARTED LOADING");
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSLog(@"FINISHED LOADING");
+}
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
     if ( inType == UIWebViewNavigationTypeLinkClicked ) {
