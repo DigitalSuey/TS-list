@@ -1,5 +1,5 @@
 # iOS-tigerspike-list
-Develop a list app - exercise
+Develop a list app - exercise:
 
 Develop an universal app that works in both orientation and fulfils the following requirements
 
