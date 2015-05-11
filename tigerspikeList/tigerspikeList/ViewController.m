@@ -9,11 +9,15 @@
 #import "ViewController.h"
 #import "CustomCell.h"
 #import "WebViewController.h"
+// Used MBProgressHUD class from https://github.com/jdg/MBProgressHUD
+// It is a load progress monitoring class that is very easily integrated and displays something is in progress
+// In this case it was used to "10) Provide feedback to the user when performing any network request."
 #import "MBProgressHUD.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *list;
+@property (strong, nonatomic) NSMutableDictionary *cachedImages;
 
 @end
 
@@ -27,6 +31,7 @@
     NSString *plistPath = [bundlePath stringByAppendingPathComponent:@"list.plist"];
     
     self.list = [NSMutableArray arrayWithContentsOfFile:plistPath];
+    self.cachedImages = [NSMutableDictionary dictionary];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -71,30 +76,41 @@
     
     [cell.descriptionLabel sizeToFit];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
+    if ([[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"] isEqualToString:@""]) {
         
-        if ([[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"] isEqualToString:@""]) {
-            [UIView animateWithDuration:0.2 animations:^{
-                [cell.titleLeftConstraint setConstant:0];
-                [cell.descriptionLeftConstraint setConstant:0];
-                
-                [cell layoutIfNeeded];
-                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            }];
+        [UIView animateWithDuration:0.5 animations:^{
+            cell.thumbnailImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"]]]];
+            [cell.titleLeftConstraint setConstant:0];
+            [cell.descriptionLeftConstraint setConstant:0];
+        }];
+    
+    }else{
+        
+        if ([self.cachedImages valueForKey:[NSString stringWithFormat:@"row%li", (long)[indexPath row]]] == nil) {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             
-        } else {
-            cell.thumbnailImageView.alpha = 0;
-            
-            [UIView animateWithDuration:0.5 animations:^{
-                cell.thumbnailImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"]]]];
-                cell.thumbnailImageView.alpha = 1;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.thumbnailImageView.alpha = 0;
                 
-                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            }];
+                [UIView animateWithDuration:0.5 animations:^{
+                    UIImage *imageFromURL = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"]]]];
+                    [cell.titleLeftConstraint setConstant:88];
+                    [cell.descriptionLeftConstraint setConstant:88];
+                    cell.thumbnailImageView.image = imageFromURL;
+                    cell.thumbnailImageView.alpha = 1;
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    [self.cachedImages setValue:imageFromURL forKey:[NSString stringWithFormat:@"row%li", (long)[indexPath row]]];
+                }];
+            });
+            
+        }else{
+            cell.thumbnailImageView.image = [self.cachedImages valueForKey:[NSString stringWithFormat:@"row%li", (long)[indexPath row]]];
+            [cell.titleLeftConstraint setConstant:88];
+            [cell.descriptionLeftConstraint setConstant:88];
         }
-    });
+        
+    }
     
     return cell;
 }

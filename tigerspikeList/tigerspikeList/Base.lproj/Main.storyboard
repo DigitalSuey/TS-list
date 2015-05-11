@@ -36,6 +36,9 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILK-Dy-kOR">
                                                     <rect key="frame" x="96" y="8" width="496" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="CKl-Oc-XRC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -48,6 +51,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vba-9K-AN9" firstAttribute="top" secondItem="ILK-Dy-kOR" secondAttribute="bottom" constant="1" id="6sr-DD-xtk"/>
                                                 <constraint firstAttribute="trailing" secondItem="ILK-Dy-kOR" secondAttribute="trailing" constant="8" id="ECw-f3-xwf"/>
                                                 <constraint firstAttribute="trailing" secondItem="vba-9K-AN9" secondAttribute="trailing" constant="8" id="FYP-6Y-tb7"/>
                                                 <constraint firstAttribute="bottom" secondItem="vba-9K-AN9" secondAttribute="bottom" constant="8" id="GIa-C8-hja"/>
@@ -56,7 +60,6 @@
                                                 <constraint firstAttribute="centerY" secondItem="ZiW-yU-n0I" secondAttribute="centerY" id="cKk-nj-DKH"/>
                                                 <constraint firstItem="vba-9K-AN9" firstAttribute="leading" secondItem="WMZ-zE-Zhi" secondAttribute="leadingMargin" constant="88" id="g2E-hb-ljy"/>
                                                 <constraint firstItem="ZiW-yU-n0I" firstAttribute="leading" secondItem="WMZ-zE-Zhi" secondAttribute="leadingMargin" id="lxv-II-XRS"/>
-                                                <constraint firstItem="vba-9K-AN9" firstAttribute="top" secondItem="WMZ-zE-Zhi" secondAttribute="topMargin" constant="22" id="sN4-n1-GGe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

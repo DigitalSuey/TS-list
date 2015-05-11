@@ -7,6 +7,9 @@
 //
 
 #import "WebViewController.h"
+// Used MBProgressHUD class from https://github.com/jdg/MBProgressHUD
+// It is a load progress monitoring class that is very easily integrated and displays something is in progress
+// In this case it was used to "10) Provide feedback to the user when performing any network request."
 #import "MBProgressHUD.h"
 #import <WebKit/WebKit.h>
 
