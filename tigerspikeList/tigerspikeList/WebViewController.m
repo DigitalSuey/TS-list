@@ -19,20 +19,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.webView.delegate = self;
+    
+    NSURL *url = [NSURL URLWithString:self.url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    
-    NSURL *url = [NSURL URLWithString:self.url];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
-    
 }
 
 /*

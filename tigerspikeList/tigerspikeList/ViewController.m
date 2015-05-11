@@ -13,7 +13,6 @@
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray *list;
-//@property (strong, nonatomic) WebViewController *webVC;
 
 @end
 
@@ -37,6 +36,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    WebViewController *webVC = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    webVC.url = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"url"];
+    
+}
+
 #pragma mark - UITableViewDelegate and UiTableViewDataSource
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -57,12 +64,6 @@
     static NSString *identifier = @"listCell";
     
     CustomCell *cell = (CustomCell *)[self.tableView dequeueReusableCellWithIdentifier:identifier];
-    
-//    if (cell == nil)
-//    {
-//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomListCell" owner:self options:nil];
-//        cell = [nib objectAtIndex:0];
-//    }
     
     cell.titleLabel.text = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"name"];
     cell.descriptionLabel.text = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"description"];
@@ -95,16 +96,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    WebViewController *webVC = [[WebViewController alloc]initWithNibName:nil bundle:nil];
-    webVC.url = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"url"];
-    [self.navigationController pushViewController:webVC animated:YES];
-    
-    
-    
-//    self.webVC.url = [[self.list objectAtIndex:[indexPath row]] valueForKey:@"url"];
-//    
-//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 @end
