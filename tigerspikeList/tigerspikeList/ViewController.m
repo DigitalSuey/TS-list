@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CustomCell.h"
 #import "WebViewController.h"
+#import "MBProgressHUD.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -70,6 +71,8 @@
     
     [cell.descriptionLabel sizeToFit];
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if ([[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"] isEqualToString:@""]) {
@@ -78,6 +81,7 @@
                 [cell.descriptionLeftConstraint setConstant:0];
                 
                 [cell layoutIfNeeded];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             }];
             
         } else {
@@ -86,6 +90,8 @@
             [UIView animateWithDuration:0.5 animations:^{
                 cell.thumbnailImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[self.list objectAtIndex:[indexPath row]] valueForKey:@"icon"]]]];
                 cell.thumbnailImageView.alpha = 1;
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             }];
         }
     });

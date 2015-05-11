@@ -17,6 +17,7 @@
 		54AC81DD1AFF388C00391F8F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81DC1AFF388C00391F8F /* WebViewController.m */; };
 		54AC81E01AFF38AB00391F8F /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81DF1AFF38AB00391F8F /* CustomCell.m */; };
 		54AC81E21AFF39BE00391F8F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54AC81E11AFF39BE00391F8F /* WebKit.framework */; };
+		54AC81E71B006BED00391F8F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 54AC81E61B006BED00391F8F /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		54AC81DE1AFF38AB00391F8F /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		54AC81DF1AFF38AB00391F8F /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		54AC81E11AFF39BE00391F8F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		54AC81E51B006BED00391F8F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		54AC81E61B006BED00391F8F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,8 @@
 				54AC81DF1AFF38AB00391F8F /* CustomCell.m */,
 				54AC81DB1AFF388C00391F8F /* WebViewController.h */,
 				54AC81DC1AFF388C00391F8F /* WebViewController.m */,
+				54AC81E51B006BED00391F8F /* MBProgressHUD.h */,
+				54AC81E61B006BED00391F8F /* MBProgressHUD.m */,
 				54AC81B91AFF20C200391F8F /* Main.storyboard */,
 				54AC81BC1AFF20C200391F8F /* Images.xcassets */,
 				54AC81BE1AFF20C200391F8F /* LaunchScreen.xib */,
@@ -234,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54AC81B81AFF20C200391F8F /* ViewController.m in Sources */,
+				54AC81E71B006BED00391F8F /* MBProgressHUD.m in Sources */,
 				54AC81B51AFF20C200391F8F /* AppDelegate.m in Sources */,
 				54AC81B21AFF20C200391F8F /* main.m in Sources */,
 				54AC81DD1AFF388C00391F8F /* WebViewController.m in Sources */,

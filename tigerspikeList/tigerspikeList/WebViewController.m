@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "MBProgressHUD.h"
 #import <WebKit/WebKit.h>
 
 @interface WebViewController ()
@@ -19,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.webView.delegate = self;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     NSURL *url = [NSURL URLWithString:self.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -45,6 +48,7 @@
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"ERROR LOADING: %@", error);
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
@@ -53,6 +57,7 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     NSLog(@"FINISHED LOADING");
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 -(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
