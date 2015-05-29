@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C16B857A-EDD8-4BF2-879B-1498B29462C2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>tigerspikeList</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1614A76029AC0C6CF75EC8BF71FF8D79C64FE31F</key>
+		<string>https://github.com/DigitalSuey/iOS-tigerspike-list.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tigerspikeList/tigerspikeList.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1614A76029AC0C6CF75EC8BF71FF8D79C64FE31F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DigitalSuey/iOS-tigerspike-list.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1614A76029AC0C6CF75EC8BF71FF8D79C64FE31F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1614A76029AC0C6CF75EC8BF71FF8D79C64FE31F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-tigerspike-list</string>
+		</dict>
+	</array>
+</dict>
+</plist>

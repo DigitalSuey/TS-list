@@ -20,4 +20,18 @@
     // Configure the view for the selected state
 }
 
+- (void)updateLabelConstraints{
+    
+    [self.titleLeftConstraint setConstant:0];
+    [self.descriptionLeftConstraint setConstant:0];
+    
+}
+
+- (void)maintainLabelConstraints{
+    
+    [self.titleLeftConstraint setConstant:98];
+    [self.descriptionLeftConstraint setConstant:98];
+    
+}
+
 @end

@@ -11,9 +11,8 @@
 // It is a load progress monitoring class that is very easily integrated and displays something is in progress
 // In this case it was used to "10) Provide feedback to the user when performing any network request."
 #import "MBProgressHUD.h"
-#import <WebKit/WebKit.h>
 
-@interface WebViewController ()
+@interface WebViewController () <UIWebViewDelegate>
 
 @end
 
@@ -24,10 +23,9 @@
     // Do any additional setup after loading the view.
     self.webView.delegate = self;
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
     NSURL *url = [NSURL URLWithString:self.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.webView loadRequest:request];
 
 }
@@ -52,6 +50,7 @@
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"ERROR LOADING: %@", error);
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    [self failedLoadArticles];
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
@@ -71,5 +70,34 @@
     
     return YES;
 }
+
+- (void)failedLoadArticles{
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    
+    if(NSClassFromString(@"UIAlertController")) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Connection failed" message:@"Failed to retrieve data." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }else{
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Connection failed"
+                              message: @"Failed to retrieve data."
+                              delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
+}
+
 
 @end
